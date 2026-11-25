@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Festival Les Marionnet'IC · Festival international de marionnettes · 23 au 29 mai 2027</title>
+<style>
+:root{
+  --bois:#f6ead8;--bois2:#d8c8ac;--creme:#f6ead8;--encre:#111;--bleu:#111;--bleu2:#333;--fil:#fff;
+  --cond:"Avenir Next Condensed","Arial Narrow","Helvetica Neue Condensed","Oswald",Impact,sans-serif;
+  --sans:"Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--creme);color:var(--encre);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* ---------- barre du haut ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:20px 5vw;color:#fff;transition:background .4s,color .4s,padding .4s}
+nav.s{background:#f6ead8ee;color:var(--encre);padding:12px 5vw;backdrop-filter:blur(8px)}
+nav .logo{font-family:var(--cond);font-weight:700;font-size:22px;letter-spacing:.06em;text-transform:uppercase}
+nav ul{display:flex;gap:16px;list-style:none;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+nav ul a{position:relative;padding:4px 0}
+nav ul a:after{content:"";position:absolute;left:0;bottom:-2px;height:1px;width:0;background:currentColor;transition:width .3s}
+nav ul a:hover:after{width:100%}
+nav ul li{white-space:nowrap}
+@media(max-width:1280px){nav ul{gap:12px;font-size:10px}}
+@media(max-width:1100px){nav ul{display:none}}
+
+nav .logo img{height:46px;width:auto;display:block;transition:opacity .4s}
+nav .logo{position:relative}
+nav .l2{position:absolute;left:0;top:0;opacity:0}
+nav.s .l1{opacity:0}nav.s .l2{opacity:1}
+nav.s .logo img{height:38px}
+footer .flogo{width:min(560px,80vw);margin:0 auto 34px;display:block}
+/* ---------- hero ---------- */
+.hero{position:relative;height:100vh;min-height:620px;overflow:hidden;background:#1a1208;color:#fff;display:flex;align-items:flex-end}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#1a1208 url(hero-boucle-poster.jpg) center/cover}
+@keyframes zoom{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.14) translate(-2%,-1.5%)}}
+.hero:after{content:"";position:absolute;inset:0;background:
+  radial-gradient(ellipse at 50% 38%,#0000 0%,#0006 62%,#000b 100%),
+  linear-gradient(0deg,#000000f2 0%,#00000088 38%,#0000 70%)}
+#strings{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+.hero .in{position:relative;z-index:3;width:100%;padding:0 5vw 9vh}
+.kicker{font-family:var(--cond);font-size:clamp(44px,8.2vw,135px);line-height:.9;letter-spacing:.02em;text-transform:uppercase;font-weight:700;color:#fff;margin-bottom:.06em;opacity:0;animation:up 1s .3s forwards}
+h1{font-family:var(--cond);font-weight:700;text-transform:uppercase;line-height:.84;font-size:clamp(70px,15.5vw,250px);letter-spacing:-.01em;display:flex;flex-wrap:wrap;gap:0 .06em}
+h1 span{display:inline-block;opacity:0;transform:translateY(60%) rotate(4deg);transform-origin:50% 0;animation:swing 1.2s cubic-bezier(.2,.9,.25,1.15) forwards}
+h1 i{font-style:normal;color:var(--bois)}
+@keyframes swing{60%{opacity:1;transform:translateY(-4%) rotate(-2deg)}100%{opacity:1;transform:none}}
+.date{display:flex;flex-wrap:wrap;align-items:center;gap:14px 36px;margin-top:30px;opacity:0;animation:up 1s 1.7s forwards}
+.date b{font-family:var(--cond);font-size:clamp(30px,4.2vw,58px);letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+.date em{font-style:normal;font-size:15px;letter-spacing:.14em;text-transform:uppercase;border-left:1px solid #fff8;padding-left:30px;line-height:1.6;color:#fff;opacity:.92}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;opacity:0;animation:up 1s 2.1s forwards}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:99px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;transition:transform .25s,background .25s,color .25s}
+.btn.p{background:var(--bois);color:var(--encre)}
+.btn.p:hover{transform:translateY(-3px);background:#fff}
+.btn.g{border:1px solid #fffa;color:#fff}
+.btn.g:hover{background:#fff;color:var(--encre)}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.scroll{position:absolute;z-index:3;right:5vw;bottom:9vh;writing-mode:vertical-rl;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#fffc;display:flex;align-items:center;gap:14px}
+.scroll:after{content:"";width:1px;height:70px;background:linear-gradient(#fffc,#fff0);animation:drip 2s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(max-width:760px){.scroll{display:none}.date em{border:0;padding:0}}
+
+/* ---------- bandeau défilant ---------- */
+.marq{background:#111;color:#f6ead8;overflow:hidden;white-space:nowrap;padding:16px 0;font-family:var(--cond);font-size:26px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.marq div{display:inline-block;animation:marq 38s linear infinite}
+.marq span{margin:0 26px}.marq span.d{color:#fff}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+section{padding:12vh 6vw;position:relative}
+.eyebrow{font-size:12px;letter-spacing:.34em;text-transform:uppercase;font-weight:700;color:var(--bleu);margin-bottom:16px}
+h2{font-family:var(--cond);font-weight:700;text-transform:uppercase;font-size:clamp(46px,7.5vw,118px);line-height:.9;color:var(--bleu);max-width:14ch}
+.lead{font-size:clamp(17px,1.6vw,22px);line-height:1.6;max-width:44ch;margin-top:26px;color:#333}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .9s,transform .9s}
+.rv.on{opacity:1;transform:none}
+
+/* ---------- carte aux fils ---------- */
+.map{display:grid;grid-template-columns:1fr 1.25fr;gap:4vw;align-items:center;background:
+  radial-gradient(circle at 80% 30%,#fff6 0,#fff0 55%),var(--creme)}
+.map .box{position:relative;aspect-ratio:1/.95;background:linear-gradient(135deg,#fbf3e4,#efe2c9 60%,var(--bois2));border-radius:6px;box-shadow:0 30px 70px -25px #0007;overflow:hidden}
+.map .box:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(95deg,#0000 0 9px,#0000000d 9px 10px,#0000 10px 23px);opacity:.55}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.map .ln{stroke:#111;stroke-width:1.2;fill:none;stroke-dasharray:900;stroke-dashoffset:900;}
+.map.on .ln{animation:draw 2.4s ease-out forwards}
+.map .ln:nth-child(2){animation-delay:.2s!important}.map .ln:nth-child(3){animation-delay:.4s!important}.map .ln:nth-child(4){animation-delay:.6s!important}.map .ln:nth-child(5){animation-delay:.8s!important}.map .ln:nth-child(6){animation-delay:1s!important}.map .ln:nth-child(7){animation-delay:1.2s!important}
+@keyframes draw{to{stroke-dashoffset:0}}
+.pin circle{fill:#8e8c96;stroke:#3b3a42;stroke-width:1}
+.pin text{font-family:var(--cond);font-size:15px;letter-spacing:.06em;fill:var(--bleu);text-transform:uppercase;font-weight:700;opacity:0;transition:opacity .8s 1.4s}
+.map.on .pin text{opacity:1}
+.pin.sm text{font-size:12px}
+.pin.q circle{fill:none;stroke:#111;stroke-dasharray:3 3}
+.pin.q text{fill:#11111199}
+.puppet{position:absolute;left:44%;top:8%;width:12%;opacity:.0}
+
+/* ---------- teaser ---------- */
+.teaser{background:#111;color:#fff;text-align:center;padding-bottom:14vh}
+.teaser h2{color:var(--bois);margin:0 auto;max-width:none}
+.teaser .eyebrow{color:var(--bois2)}
+.vid{position:relative;max-width:1100px;margin:6vh auto 0;aspect-ratio:16/9;border-radius:6px;overflow:hidden;box-shadow:0 40px 90px -20px #000c;background:#000}
+.vid video{width:100%;height:100%;display:block;object-fit:cover}
+.vid .play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(#0000,#0008);cursor:pointer;transition:opacity .4s}
+.vid .play b{width:110px;height:110px;border-radius:50%;border:1px solid #fff;display:grid;place-items:center;backdrop-filter:blur(6px);background:#ffffff1c;transition:transform .3s,background .3s}
+.vid .play:hover b{transform:scale(1.1);background:#ffffff40}
+.vid .play b:after{content:"";margin-left:8px;border-left:26px solid #fff;border-top:16px solid #0000;border-bottom:16px solid #0000}
+.vid.on .play{opacity:0;pointer-events:none}
+
+/* ---------- galerie ---------- */
+.gal{background:var(--creme);padding-left:0;padding-right:0;overflow:hidden}
+.gal .head{padding:0 6vw}
+.strip{display:flex;gap:22px;padding:7vh 6vw 2vh;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.strip figure{flex:0 0 min(30vw,440px);min-width:260px;scroll-snap-align:start;position:relative;border-radius:4px;overflow:hidden;aspect-ratio:3/4;transition:transform .5s}
+.strip figure:nth-child(even){margin-top:6vh}
+.strip figure:hover{transform:translateY(-10px) rotate(-.6deg)}
+.strip img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s}
+.strip figure:hover img{transform:scale(1.08)}
+.strip figcaption{position:absolute;left:0;right:0;bottom:0;padding:50px 18px 16px;background:linear-gradient(#0000,#000a);color:#fff;font-family:var(--cond);font-size:22px;letter-spacing:.08em;text-transform:uppercase}
+.soon{margin:0 6vw;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#666}
+
+/* ---------- infos ---------- */
+.infos{background:#111;color:var(--creme);display:grid;grid-template-columns:1fr 1fr;gap:6vw}
+.infos h2{color:#fff}
+.infos .eyebrow{color:var(--bois)}
+.lieux{list-style:none;margin-top:10px}
+.lieux li{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid #fff3;font-family:var(--cond);font-size:clamp(20px,2vw,28px);letter-spacing:.06em;text-transform:uppercase;font-weight:600;transition:padding .3s,color .3s}
+.lieux li:hover{padding-left:14px;color:var(--bois)}
+.lieux li span{font-family:var(--sans);font-size:13px;letter-spacing:.14em;font-weight:500;opacity:.8;align-self:center;white-space:nowrap}
+.big{font-family:var(--cond);font-size:clamp(70px,11vw,170px);font-weight:700;line-height:.9;color:var(--bois);margin-top:4vh;text-transform:uppercase}
+.big small{display:block;font-size:.22em;letter-spacing:.2em;color:#fff;font-weight:600;margin-top:12px}
+@media(max-width:860px){.infos,.map{grid-template-columns:1fr}}
+
+/* ---------- pied ---------- */
+footer{background:var(--encre);color:#d8d2c4;padding:9vh 6vw 6vh;text-align:center}
+footer h3{font-family:var(--cond);font-size:clamp(34px,5vw,70px);letter-spacing:.04em;color:#fff;text-transform:uppercase;font-weight:700}
+footer p{margin-top:16px;font-size:14px;letter-spacing:.06em;line-height:1.8}
+footer .mail{display:inline-block;margin-top:26px;color:var(--bois);border-bottom:1px solid var(--bois);padding-bottom:2px;font-size:15px;letter-spacing:.1em}
+footer small{display:block;margin-top:44px;font-size:12px;opacity:.6;letter-spacing:.1em;line-height:1.7}
+
+/* ---------- contenu du site ---------- */
+.fest{background:var(--creme);display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:start}
+.fest p{font-size:clamp(16px,1.35vw,19px);line-height:1.7;color:#333;margin-bottom:18px;max-width:58ch}
+.nums{display:grid;grid-template-columns:1fr 1fr;gap:34px 20px;margin-top:6px}
+.nums div b{display:block;font-family:var(--cond);font-weight:700;font-size:clamp(56px,6.4vw,100px);line-height:.95;color:#111}
+.nums div span{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#555}
+.prog{background:#fff;color:#111}
+.prog h3{font-family:var(--cond);text-transform:uppercase;font-size:clamp(24px,2.6vw,38px);letter-spacing:.06em;margin:7vh 0 6px;border-bottom:2px solid #111;padding-bottom:10px}
+.show{display:grid;grid-template-columns:minmax(150px,.7fr) 2fr 1.1fr;gap:10px 28px;padding:22px 0;border-bottom:1px solid #1112;align-items:baseline;transition:padding .3s,background .3s}
+.show:hover{padding-left:14px;background:var(--creme)}
+.show .d{font-family:var(--cond);font-size:clamp(20px,1.9vw,28px);letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+.show .t{font-family:var(--cond);font-size:clamp(24px,2.5vw,36px);text-transform:uppercase;font-weight:700;line-height:1}
+.show .t em{display:block;font-family:var(--sans);font-style:normal;font-weight:400;font-size:14px;letter-spacing:.04em;text-transform:none;color:#555;margin-top:7px;line-height:1.5}
+.show .l{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#444;line-height:1.5}
+.note{margin-top:18px;font-size:14px;line-height:1.7;color:#444;max-width:70ch}
+.note b{color:#111}
+@media(max-width:860px){.fest{grid-template-columns:1fr}.show{grid-template-columns:1fr}}
+.part{background:var(--creme)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:6vh}
+.card{background:#fff;border:1px solid #1111;border-radius:6px;padding:30px 26px;transition:transform .4s,box-shadow .4s}
+.card:hover{transform:translateY(-8px);box-shadow:0 26px 50px -22px #0006}
+.card h4{font-family:var(--cond);text-transform:uppercase;font-size:28px;letter-spacing:.05em;margin-bottom:12px}
+.card p{font-size:15px;line-height:1.65;color:#333;margin-bottom:10px}
+.card a{display:inline-block;margin-top:8px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;border-bottom:1px solid #111;padding-bottom:2px}
+.ligne{background:#111;color:#fff}
+.ligne h2{color:#fff}
+.ligne .eyebrow{color:var(--creme)}
+.pts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:34px;margin-top:7vh}
+.pts h4{font-family:var(--cond);text-transform:uppercase;font-size:24px;letter-spacing:.06em;color:var(--creme);margin-bottom:10px;border-top:1px solid #fff5;padding-top:14px}
+.pts p{font-size:15px;line-height:1.7;color:#ddd}
+.parts{background:var(--creme)}
+.parts p{font-size:15px;line-height:1.9;max-width:90ch;color:#222;margin-top:14px}
+.parts p b{font-family:var(--cond);text-transform:uppercase;letter-spacing:.08em;font-size:18px;display:block;margin-top:18px}
+footer .addr{margin-top:22px}
+footer .soc a{margin:0 12px;color:#fff;border-bottom:1px solid #fff8;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+
+.fest2{background:var(--creme)}
+.txt p{font-size:clamp(15px,1.25vw,18px);line-height:1.75;max-width:82ch;margin:0 0 16px;color:#222}
+.txt.light p{color:#e8e8e8}
+.txt.light p b{color:#fff}
+.prog.creme{background:var(--creme)}
+.prog.creme .show:hover{background:#fff}
+.part,.fest2{background:var(--creme)}
+.part:nth-of-type(odd){background:#fff}
+section.part{padding-top:10vh}
+.show .l{max-width:34ch}
+
+.reel{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;margin-top:6vh;cursor:grab;-webkit-overflow-scrolling:touch}
+.reel::-webkit-scrollbar{display:none}
+.reel.drag{cursor:grabbing}
+.reel .track{display:flex;gap:18px;width:max-content;padding:0 9px;align-items:center}
+.reel figure{flex:none;position:relative;border-radius:4px;overflow:hidden;box-shadow:0 18px 40px -22px #0008}
+.reel{--h:clamp(190px,30vh,290px)}
+.reel .track{gap:10px}
+.reel figure{width:calc(var(--h)*1.18);height:var(--h);border-radius:3px}
+.reel figure img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 38%;user-select:none;-webkit-user-drag:none}
+.reel.full{margin-left:-6vw;margin-right:-6vw;margin-top:6vh}
+.ligne .txt{margin-bottom:0}
+
+.mosaic{display:flex;gap:12px;align-items:flex-start;padding:0 6vw;margin-top:6vh}.mcol{flex:1;min-width:0}
+.mosaic figure{break-inside:avoid;margin:0 0 12px;border-radius:3px;overflow:hidden;cursor:zoom-in;position:relative;background:#e9dcc6}
+.mosaic figure img{display:block;width:100%;height:auto;transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .5s}
+.mosaic figure:hover img{transform:scale(1.06)}
+#lb{position:fixed;inset:0;z-index:200;background:#000e;display:none;align-items:center;justify-content:center}
+#lb.on{display:flex}
+#lb img{max-width:92vw;max-height:90vh;object-fit:contain;box-shadow:0 30px 80px #000}
+#lb button{position:absolute;background:none;border:0;color:#fff;font-size:44px;line-height:1;cursor:pointer;padding:16px;opacity:.85}
+#lb button:hover{opacity:1}
+#lb .x{top:10px;right:18px}#lb .p{left:10px;top:50%;transform:translateY(-50%)}#lb .n{right:10px;top:50%;transform:translateY(-50%)}
+@media(max-width:700px){.mosaic{gap:6px;padding:0 4vw}.mosaic figure{margin-bottom:6px}}
+
+.bigphoto{padding:0 6vw;margin-top:5vh}
+.bigphoto figure{margin:0 0 12px;border-radius:3px;overflow:hidden;cursor:zoom-in;background:#e9dcc6}
+.bigphoto figure img{display:block;width:100%;height:auto;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.bigphoto figure:hover img{transform:scale(1.03)}
+.mosaic figure:hover img{transform:scale(1.04)}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.mosaic figure,.bigphoto figure{animation:flt 7s ease-in-out infinite}
+.mcol:nth-child(2) figure{animation-duration:8.5s;animation-delay:-2s}
+.mcol:nth-child(3) figure{animation-duration:6.5s;animation-delay:-4s}
+.mcol figure:nth-child(even){animation-delay:-3.5s}
+.mcol figure:nth-child(3n){animation-delay:-1s}
+.bigphoto figure{animation-duration:9s}
+@media (prefers-reduced-motion:reduce){.mosaic figure,.bigphoto figure{animation:none}}
+.bigphoto,#mosaic2{padding:0}</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="logo" href="#top"><img class="l1" src="logo-clair.png" alt="Marionnet'IC"><img class="l2" src="logo-fonce.png" alt=""></a>
+  <ul>
+    <li><a href="#ligne">Ligne éditoriale</a></li>
+    <li><a href="#fils">Territoire</a></li>
+    <li><a href="#teaser">Teaser</a></li>
+    <li><a href="#programme">Programme</a></li>
+    <li><a href="#scolaires">Scolaires</a></li>
+    <li><a href="#decentralisation">Décentralisation</a></li>
+    <li><a href="#benevole">Participer</a></li>
+    <li><a href="#partenaires">Partenaires</a></li>
+    <li><a href="#infos">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top">
+  <video class="bg" autoplay muted loop playsinline preload="auto" poster="hero-boucle-poster.jpg"><source src="hero-boucle.mp4" type="video/mp4"></video>
+  <svg id="strings" aria-hidden="true"></svg>
+  <div class="in">
+    <p class="kicker">Festival Les</p>
+    <h1 aria-label="Festival Les Marionnet'IC" id="title"></h1>
+    <div class="date">
+      <b>23 → 29 mai 2027</b>
+      <em>Festival international de marionnettes<br>Côtes d'Armor · Théâtre d'objets · Formes courtes</em>
+    </div>
+    <div class="cta">
+      <a class="btn p" href="#teaser">▶ Voir le teaser</a>
+      <a class="btn g" href="#fils">Dans toute l'agglo</a>
+    </div>
+  </div>
+  <div class="scroll">Faire glisser</div>
+</header>
+
+<div class="marq" aria-hidden="true"><div id="mq"></div></div>
+
+<section class="ligne" id="ligne">
+  <p class="eyebrow rv">Notre projet</p>
+  <h2 class="rv">Un espace de libertés</h2>
+<div class="txt light rv"><p><b>27 ans de bonheur, d'accueil, de partage et d'émotions.</b></p><p>Le festival est né dans la tête d'un marionnettiste, qui ne sait qu'entreprendre, Philippe Saumont. Avec l'aide de ses amis marionnettistes et de quelques bénévoles, la durée du festival est passée d'un week-end à une semaine, associant les écoles du département.</p><p>C'est un festival qui s'est tout d'abord ancré sur le territoire du Sud Goëlo. Mais il n'a pas attendu son rattachement à Saint-Brieuc Armor Agglomération pour exister dans l'agglomération briochine. La démarche de décentralisation (par rapport à Binic – Étables-sur-Mer, ville berceau du festival) vise à amener aux publics des autres villes concernées (villes du Sud Goëlo, implantation historique, mais aussi de Saint-Brieuc Armor Agglomération) des spectacles dans la pure tradition de la rue, dans des lieux qui ne rencontrent pas forcément le spectacle vivant en temps normal (fermes, plages, bar, chez l'habitant…).</p><p>Il draine un public très costarmoricain mais pas seulement. Le festival propose aux territoires peu explorés des spectacles de marionnettes, à des tarifs qui veulent rester bas (beaucoup de spectacles sont aussi proposés volontairement gratuitement, dans le cadre de la décentralisation, ce qui permet de venir découvrir avant de faire le pas d'entrer dans une salle de théâtre).</p></div>
+</section>
+
+<section class="gal" id="compagnies">
+  <div class="head rv">
+    <p class="eyebrow">Le festival en images</p>
+    <h2>Des mains, des fils, des mondes minuscules</h2>
+  </div>
+  <div class="mosaic" id="mosaic"><div class="mcol"><figure><img src="photo04.jpg" width="1500" height="1000" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo07.jpg" width="1500" height="1025" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo12.jpg" width="1039" height="1500" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo18.jpg" width="1500" height="1500" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo21.jpg" width="1500" height="1500" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo24.jpg" width="1500" height="1064" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo27.jpg" width="1500" height="1256" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure></div><div class="mcol"><figure><img src="photo28.jpg" width="1125" height="1500" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo10.jpg" width="1500" height="982" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo14.jpg" width="1500" height="1058" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo17.jpg" width="1500" height="1500" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo20.jpg" width="1500" height="1000" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo22.jpg" width="1500" height="1000" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo25.jpg" width="1500" height="1007" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo15.jpg" width="1500" height="1000" alt="" loading="lazy" draggable="false"></figure></div><div class="mcol"><figure><img src="photo06.jpg" width="1272" height="1500" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo08.jpg" width="1500" height="1284" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo16.jpg" width="1500" height="1500" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo19.jpg" width="1000" height="1500" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo23.jpg" width="1500" height="911" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo26.jpg" width="1125" height="1500" alt="Photo du festival Marionnet'IC" loading="lazy" draggable="false"></figure></div></div>
+</section>
+
+<section class="map" id="fils">
+  <div class="rv">
+    <p class="eyebrow">Un fil entre les villes</p>
+    <h2>Une semaine, tout un territoire relié</h2>
+    <p class="lead">Un festival international qui tient un équilibre fort entre un ancrage central à Saint-Brieuc et une vaste décentralisation sur tout le territoire de Saint-Brieuc Armor Agglomération. Une offre ultra-transversale, de la petite enfance (dès 3 mois) aux adultes, avec un très gros volet pour les scolaires : 2 500 élèves accueillis. Des formes légères, jusque chez l'habitant, dans les crèches et les Ehpad.</p>
+  </div>
+  <div class="box rv" id="box">
+    <svg viewBox="0 0 600 570" preserveAspectRatio="xMidYMid slice">
+      <g id="lines">
+        <path class="ln" d="M300 270 L150 120"/>
+        <path class="ln" d="M300 270 L470 150"/>
+        <path class="ln" d="M300 270 L500 330"/>
+        <path class="ln" d="M300 270 L400 470"/>
+        <path class="ln" d="M300 270 L170 400"/>
+        <path class="ln" d="M150 120 L470 150 L500 330 L400 470 L170 400 L150 120"/>
+        <path class="ln" d="M300 270 L90 290"/>
+        <path class="ln" d="M300 270 L22 200"/>
+        <path class="ln" d="M300 270 L260 45"/>
+        <path class="ln" d="M300 270 L400 60"/>
+        <path class="ln" d="M300 270 L540 235"/>
+        <path class="ln" d="M300 270 L545 410"/>
+        <path class="ln" d="M300 270 L300 525"/>
+        <path class="ln" d="M300 270 L60 500"/>
+      </g>
+      <g class="pin"><circle cx="300" cy="270" r="9"/><text x="314" y="262">Saint-Brieuc</text></g>
+      <g class="pin"><circle cx="150" cy="120" r="7"/><text x="164" y="116">Pordic</text></g>
+      <g class="pin"><circle cx="470" cy="150" r="7"/><text x="372" y="142">Plérin</text></g>
+      <g class="pin"><circle cx="500" cy="330" r="7"/><text x="398" y="346">Ploufragan</text></g>
+      <g class="pin"><circle cx="400" cy="470" r="7"/><text x="414" y="476">Trégueux</text></g>
+      <g class="pin"><circle cx="170" cy="400" r="7"/><text x="60" y="428">Binic · Étables</text></g>
+      <g class="pin sm"><circle cx="22" cy="200" r="5"/><text x="30" y="196">Saint-Quay-Portrieux</text></g>
+      <g class="pin sm"><circle cx="260" cy="45" r="5"/><text x="272" y="41">Plourhan</text></g>
+      <g class="pin sm"><circle cx="400" cy="60" r="5"/><text x="412" y="56">Yffiniac</text></g>
+      <g class="pin sm"><circle cx="540" cy="235" r="5"/><text x="455" y="231">Plédran</text></g>
+      <g class="pin sm"><circle cx="545" cy="410" r="5"/><text x="466" y="406">Lanfains</text></g>
+      <g class="pin sm"><circle cx="300" cy="525" r="5"/><text x="312" y="531">La Méaugon</text></g>
+      <g class="pin sm"><circle cx="60" cy="500" r="5"/><text x="72" y="506">Plaintel</text></g>
+      <g class="pin q"><circle cx="90" cy="290" r="7"/><text x="30" y="276">et d'autres villes…</text></g>
+    </svg>
+  </div>
+</section>
+
+<section class="teaser" id="teaser">
+  <p class="eyebrow rv">Le teaser</p>
+  <h2 class="rv">Avant le rideau</h2>
+  <div class="vid rv" id="vid">
+    <video preload="metadata" poster="teaser-poster.jpg" playsinline controls controlslist="nodownload"><source src="teaser.mp4" type="video/mp4"></video>
+    <div class="play" id="play"><b></b></div>
+  </div>
+</section>
+
+<section class="fest2" id="festival">
+  <p class="eyebrow rv">Le festival</p>
+  <h2 class="rv">Édition 2027 · du 23 au 29 mai</h2>
+<p class="note rv">Programmation en cours de traitement informatique.</p>
+<div class="txt rv"><p>Après 28 ans de vie, le festival s'inscrit parmi les plus grands événements du département des Côtes d'Armor et de Saint-Brieuc Agglomération.</p><p>Le festival « Les Marionnet'Ic », qui a déjà vécu 26 éditions et 2 annulations pour cause de COVID-19, se dirige enfin vers la 27<sup>e</sup> édition.</p><p>Le festival est sur les rails depuis la nouvelle version. Nous voulions être au centre à Saint-Brieuc pour pouvoir mieux décentraliser sur Saint-Brieuc Agglomération, c'est fait et confirmé. Cette année, c'est le retour à Binic / Étables-sur-Mer.</p><p>Il est devenu un carrefour régional de la marionnette incontournable, un lieu de création, d'échange, d'innovation, de formation pour les professionnels. Il est également un pôle d'attraction culturelle et touristique hors saison (mois d'avril/mai).</p><p>Le festival Marionnet'IC existe depuis 27 ans. Créé sous l'impulsion du marionnettiste et directeur artistique du festival, Philippe Saumont, il connaît un succès de plus en plus important. Plus de 500 artistes ou compagnies ont participé une ou plusieurs fois depuis 1999 au festival.</p><p>La fréquentation est constante, par an depuis 1999, soit près de 200 000 spectateurs.</p><p>Basé exclusivement à Binic les trois premières années, le festival s'est étendu par la suite aux communes voisines grâce au soutien notamment du Conseil Régional de Bretagne, du Conseil Départemental des Côtes d'Armor, de la commune de Binic et des autres communes partenaires et bien sûr de Saint-Brieuc Agglomération. Il est tenu par une équipe de bénévoles qui œuvrent à l'année pour le bon déroulement de l'organisation.</p><p>L'ambition du festival est de garantir à un plus grand nombre l'accès à la culture et plus particulièrement à l'art de la marionnette.</p><p>Porté par l'association Les Marionnet'Ic, le festival Marionnet'Ic est un espace de libertés où la programmation ne suit qu'une logique : l'envie de partager des œuvres uniques, originales, hétéroclites qui interrogent le regard que nous portons sur le monde à travers la richesse des arts de la marionnette.</p><p>Son activité est toujours soutenue par l'implication très volontaire d'une grande et joyeuse équipe de bénévoles qui œuvrent à l'année pour le bon déroulement de l'organisation.</p><p>Le festival Marionnet'Ic est également riche de partenariats historiques avec de nombreux acteurs culturels et éducatifs du territoire, sur lesquels il s'appuie pour développer des actions artistiques et culturelles, et des projets innovants sur le territoire (spectacles chez les habitants, dans les crèches, les Ehpad, en extérieur, à vélo…).</p><p>L'ambition du festival reste de garantir à un plus grand nombre l'accès à la culture et plus particulièrement à l'art de la marionnette, et de toucher tous les publics, de 1 à 101 ans.</p><p><b>Une équipe de bénévoles jeunes et souriants.</b> Merci à tous les bénévoles qui travaillent sans relâche tout au long de l'année pour faire vivre le festival, et ce depuis maintenant 27 ans ! Merci également à l'équipe technique qui permet aux spectacles de prendre forme sous vos yeux ! Et enfin merci à Bertrand Cousseau pour les photos prises lors des différents festivals, qui nous aident à revivre encore et encore les moments partagés et la magie du festival !</p><p>Vous souhaitez intégrer cette belle équipe et participer à cette grande aventure humaine ? Rendez-vous sur la page « <a href="#benevole"><u>Devenir bénévole</u></a> ».</p></div>
+<div class="bigphoto"><figure><img src="vol1.jpg" width="1500" height="950" alt="Bénévoles du festival Marionnet'IC" draggable="false"></figure></div><div class="mosaic" id="mosaic2"><div class="mcol"><figure><img src="photo05.jpg" width="1063" height="1500" alt="Bénévoles du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="vol5.jpg" width="1500" height="1000" alt="Bénévoles du festival Marionnet'IC" loading="lazy" draggable="false"></figure></div><div class="mcol"><figure><img src="vol2.jpg" width="1500" height="1500" alt="Bénévoles du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="vol4.jpg" width="1500" height="1125" alt="Bénévoles du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="vol7.jpg" width="1500" height="1125" alt="Bénévoles du festival Marionnet'IC" loading="lazy" draggable="false"></figure></div><div class="mcol"><figure><img src="vol3.jpg" width="1500" height="1500" alt="Bénévoles du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="photo11.jpg" width="1500" height="1000" alt="Bénévoles du festival Marionnet'IC" loading="lazy" draggable="false"></figure><figure><img src="vol6.jpg" width="1500" height="1066" alt="Bénévoles du festival Marionnet'IC" loading="lazy" draggable="false"></figure></div></div>
+</section>
+
+<section class="ligne" id="valeurs">
+  <p class="eyebrow rv">Nos convictions</p>
+  <h2 class="rv">Défendre la culture, les arts vivants</h2>
+  <div class="pts"><div class="rv"><h4>Des théâtres de marionnettes</h4><p>En 26 ans, nous avons pu découvrir différentes techniques, styles et cultures de marionnettes. Le théâtre de marionnettes revêt des formes d'écriture très diversifiées, s'appuyant sur une tradition solide, pour explorer des techniques plus contemporaines. C'est ce cheminement riche et toujours en mouvement que les Marionnet'Ic permettent de parcourir. Même si l'art de la marionnette est encore considéré comme un art mineur, peut-être d'ailleurs ne faut-il pas nécessairement que cela change, car cela l'ancre dans une réalité populaire qui a son importance. A contrario, l'art de la marionnette doit faire coexister les arts dits majeurs ! En effet, un spectacle de marionnettes ou de formes animées doit articuler les arts plastiques, l'écriture, la dramaturgie, l'art de l'acteur, la musique, sans oublier parfois l'art chorégraphique, avec la singularité de la manipulation qui reste propre à cet art. Il est en train de devenir un art contemporain, s'appuyant aujourd'hui sur les techniques numériques.</p></div><div class="rv"><h4>Des compagnies de renommée internationale</h4><p>Depuis sa création il y a 27 ans, le festival a su nouer des relations internationales, en faisant venir en Bretagne des artistes du monde entier. Chaque année, ce sont 2 ou 3 compagnies étrangères qui sont invitées, afin de présenter à un public toujours plus curieux des spectacles hétéroclites et culturellement différents. Ce sont ainsi plus de 15 pays qui ont pu être représentés au fil de ces 26 ans : Suisse, Japon, Angleterre, Nicaragua, Portugal, Italie, Sénégal, Inde, États-Unis, Belgique, Hongrie, Espagne, Brésil, Pays-Bas, Venezuela…</p></div><div class="rv"><h4>De la diffusion</h4><p>Notre politique est de permettre à un maximum de programmateurs de venir sur le festival, à la rencontre de ces compagnies, afin de les faire connaître et de les faire travailler. C'est pourquoi nous avons fait le choix de les accueillir gratuitement sur le festival. D'où aussi l'importance de programmer des spectacles en création.</p></div><div class="rv"><h4>Des spectacles pour tous</h4><p>Le public des Marionnet'Ic n'est pas monolithique. Le festival s'adresse autant aux tout-petits qu'à tous les âges de l'enfance, à l'adolescence et bien sûr aux adultes, parce que l'art de la marionnette n'est évidemment pas fait d'un seul bloc. Des habitués des théâtres mais aussi : des personnes qui ne se déplacent pas facilement (partenariat avec l'association « Culture z'à tous ») ; les écoles maternelles, primaires, collèges voire lycées, de plus en plus, qui sont un public privilégié ; des rencontres professionnelles régulièrement organisées pour favoriser les artistes et mieux comprendre leurs contraintes.</p></div><div class="rv"><h4>De l'art et la culture : voie royale pour accéder au monde</h4><p>La culture, les arts dont fait partie le théâtre de marionnettes, est une proposition de lecture sublimée du monde, pour que le public construise ses propres repères et donne du sens à une réalité concrète complexe. Les arts mettent en scène à la fois une « beauté impassible » du monde, de la vie, tout en faisant jaillir une dimension pulsionnelle, chaotique de ce que l'humain a de plus archaïque et sombre enfoui en lui.</p></div><div class="rv"><h4>La marionnette et les autres arts</h4><p>Si les Marionnet'Ic font la part belle aux théâtres de marionnettes, quels qu'ils soient, elles réservent aussi une place aux autres médias artistiques : la danse, la musique, le cinéma. Et depuis peu, nous incluons la littérature, sous toutes ses formes, puisqu'une librairie (le Café Librairie Le Tagarin, Binic / Étables-sur-Mer) a accepté de tenter l'aventure avec nous et trouve naturellement sa place dans la manifestation.</p></div><div class="rv"><h4>De la formation des professionnels et du public</h4><p>Pour toutes ces raisons, le festival est un vecteur du regard singulier des artistes sur notre monde et notre humanité. Il se doit d'être un laboratoire de recherches, de réflexions, d'idées et de rencontres. C'est la raison pour laquelle nous devons réinscrire, dans ce cadre, les échanges entre professionnels sur des thèmes qui les concernent, les échanges professionnels / public, même si ce sont des démarches encore difficiles (travailler sur des propositions de médiations culturelles et d'activités pédagogiques avec les écoles). Nous devons réinscrire également de la formation, grâce aux compagnies qui acceptent d'organiser des master classes, l'échange sur les savoirs et l'accompagnement des jeunes compagnies.</p></div></div>
+</section>
+
+<section class="prog" id="programme">
+  <p class="eyebrow rv">Programme · Tout public</p>
+  <h2 class="rv">Notre sélection</h2>
+<div class="show rv"><div class="d">23 mai</div><div class="t">Concert Bazaar Hall<em>En cours de programmation</em></div><div class="l">Bazaar Hall</div></div>
+<div class="show rv"><div class="d">26 mai · 10h45 &amp; 16h30</div><div class="t">Le Rêve d'Etel<em>Compagnie Mae Bee · Saint-Quay-Portrieux · Marionnettes dès 4 ans · 30 mn</em></div><div class="l">Salle de L'Estran<br>Binic</div></div>
+<div class="show rv"><div class="d">26 mai · 15h30</div><div class="t">JEU<em>Cie A Kan La Dériv' · Nogent-sur-Marne · Marionnette dès 3 ans · 35 mn · en co-réalisation avec le Centre culturel Victor Hugo</em></div><div class="l">Espace Victor Hugo<br>Ploufragan</div></div>
+<div class="show rv"><div class="d">26 mai · 17h30</div><div class="t">Les petites variations<em>Cie L'Artère · Suisse · 3 histoires de filiation à consommer sans modération, toutes ensemble ou séparément, autour du lien entre grands-parents et petits-enfants · dès 4 ans · 30 mn en scolaire, 13 mn en tout public</em></div><div class="l">Centre de la Ville Robert<br>Pordic</div></div>
+<div class="show rv"><div class="d">28 mai · 19h</div><div class="t">Parcours Marionnet'IC<em>En partenariat avec le Centre culturel de la Ville Robert · tout public à partir de 16 ans · 3h30 · à partir de 15 ans selon la page Parcours</em></div><div class="l">Centre de la Ville Robert<br>Pordic</div></div>
+<div class="show rv"><div class="d">29 mai · 19h</div><div class="t">Shoe &amp; Shoes<em>Compagnie Scopitone &amp; Cie · Rennes · Clown, cirque et objets dès 3 ans · 35 mn · en co-réalisation avec Bleu Pluriel</em></div><div class="l">Centre culturel Bleu Pluriel<br>Trégueux</div></div>
+<h3 class="rv" id="parcours">Parcours 3 spectacles · Nocturnes sur le fil</h3>
+<p class="note rv"><b>Parcours A et B</b> · le 28 mai à 19h00 et 20h00 · à partir de 15 ans · 3h30 de spectacles · Centre de la Ville Robert, Pordic</p>
+<div class="show rv"><div class="d">Dès 5 ans · 25 mn</div><div class="t">Cœur de Patate<em>Compagnie TOF Théâtre · Belgique · Marionnette à main</em></div><div class="l">19h00 et 20h00</div></div>
+<div class="show rv"><div class="d">20 mn</div><div class="t">Dans L'Atelier<em>Compagnie TOF Théâtre · Belgique · Comédienne et marionnette, spectacle trash tout public et sans parole · moins de 8 ans s'abstenir…</em></div><div class="l">19h00 et 20h00</div></div>
+<div class="show rv"><div class="d">À partir de 16 ans</div><div class="t">Terreur<em>Compagnie Les Yeux Creux · Marionnette</em></div><div class="l">19h00 et 20h00</div></div>
+<div class="show rv"><div class="d">Concert · gratuit · 30 à 40 mn</div><div class="t">Nini Poulain<em>Pour clôturer la soirée. C'est un rayon de soleil cette super nana. Elle irradie sur scène, à fleur de peau, en cœur sensible, entre rires, sourires, mélancolie et chagrins, toute la palette est là avec son accordéon et sa voix. Son nouvel album « J'suis pas une rockstar » prend désormais une dimension plus chanson française cuisinée à la sauce pop rock avec l'arrivée de son nouveau batteur Nicolas Courret (Eiffel, Laetitia Shériff), également réalisateur artistique de ce dernier. Partout où elle passe les petits cœurs trépassent et ça fonctionne sur tout public et tout âge… une bête de scène tonique et sensible, à ne pas manquer.</em></div><div class="l">Centre de la Ville Robert<br>Pordic</div></div>
+<p class="note rv"><a href="mailto:festivalmarionnetic@gmail.com?subject=R%C3%A9servation%20Parcours"><u>Je réserve ma soirée</u></a></p>
+</section>
+
+<section class="prog" id="reservations">
+  <p class="eyebrow rv">Réservations</p>
+  <h2 class="rv">Billetterie</h2>
+<div class="cards"><div class="card rv"><h4>Billetterie scolaire</h4><p>Envoyez un mail à marionneticscolaire@gmail.com en indiquant les coordonnées de l'école, le spectacle, la séance, le nombre d'enfants et d'accompagnateurs, vos noms et téléphone.</p><a href="mailto:marionneticscolaire@gmail.com">Réservation scolaire</a></div><div class="card rv"><h4>Décentralisation</h4><p>Réservation avant le 31 décembre 2026.</p><a href="mailto:psaumont22@gmail.com?subject=Marionnetic%20d%C3%A9centralisation">Réservation décentralisation</a></div><div class="card rv"><h4>Billetterie tout public</h4><p>Programmation et réservation par mail à l'équipe du festival.</p><a href="mailto:festivalmarionnetic@gmail.com">Réservation tout public</a></div></div>
+</section>
+
+<section class="prog creme" id="scolaires">
+  <p class="eyebrow rv">Spectacles réservés aux scolaires</p>
+  <h2 class="rv">Scolaires</h2>
+<div class="show rv"><div class="d">25 mai · 9h15 &amp; 10h45 (complet)</div><div class="t">Zarbigorno<em>Compagnie Mae Bee · Saint-Quay-Portrieux · Marionnettes dès 4 ans · 30 mn · séances du 25 mai (complet) et séance tout public du 26 mai · séances du 24 mai : à confirmer</em></div><div class="l">Lieu à définir</div></div>
+<div class="show rv"><div class="d">Dates à confirmer</div><div class="t">Keur Mame Boye<em>Cie Yaak'Art / Djarama · Toubab Dialaw, Sénégal · Marionnettes sans parole dès 5 ans · 35 mn</em></div><div class="l">Lieu à confirmer</div></div>
+<div class="show rv"><div class="d">Dates à confirmer</div><div class="t">La petite boutique des notes perdues<em>Cie Hirundo Rustica · Plouaret · Marionnette et musique en direct dès 6 ans · 40 mn</em></div><div class="l">Lieu à confirmer</div></div>
+<div class="show rv"><div class="d">27 mai · 9h15 &amp; 10h45 · 28 mai · 9h15</div><div class="t">Les petites variations<em>Cie L'Artère · Suisse · Histoires de filiation à consommer sans modération · dès 4 ans · 30 mn · le 28 mai à 10h45 : complet</em></div><div class="l">Centre de la Ville Robert<br>Pordic</div></div>
+<div class="show rv"><div class="d">27 mai · 10h45 · 28 mai · 9h15 &amp; 10h45</div><div class="t">Un Rond dans un Carré<em>Compagnie TOF Théâtre · Belgique · Marionnettes dès 3 ans · 40 mn · le 27 mai à 9h15 : complet</em></div><div class="l">Musée d'art et d'histoire<br>Saint-Brieuc</div></div>
+<div class="show rv"><div class="d">25 mai · 10h00 &amp; 14h00</div><div class="t">Shoe &amp; Shoes<em>Compagnie Scopitone &amp; Cie · Rennes · scolaires en partenariat avec le Centre culturel Bleu Pluriel · le 29 mai à 19h en tout public · billetterie de Bleu Pluriel : mardi, mercredi et vendredi de 13h30 à 18h, sur place, au 02 96 71 31 20 ou en ligne sur www.bleu-pluriel.com</em></div><div class="l">Bleu Pluriel<br>Trégueux</div></div>
+<div class="show rv"><div class="d">27 mai · 9h00 &amp; 10h45</div><div class="t">JEU<em>Compagnie A Kan La Dériv' · Nogent-sur-Marne · scolaires en partenariat avec le Centre culturel Victor Hugo · le 26 mai à 15h30 en tout public · contact : 02 96 78 89 24 ou centre.culturel@ploufragan.fr</em></div><div class="l">Espace Victor Hugo<br>Ploufragan</div></div>
+<p class="note rv"><b>Tarif scolaires : 4,50 € par personne · 1 accompagnateur gratuit pour 12 enfants.</b><br>Pour réserver, c'est facile ! Envoyez un mail à <a href="mailto:marionneticscolaire@gmail.com"><u>marionneticscolaire@gmail.com</u></a>, en indiquant bien vos coordonnées (nom de l'école et ville), le spectacle choisi, la date et l'heure de la séance choisie, le nombre d'enfants, d'accompagnateurs, et vos noms et téléphone. <a href="https://www.marionnetic.com/_files/ugd/7a8d62_a948828eb1584cb0980350e2103445fc.pdf"><u>Quelques conseils pour profiter au mieux du spectacle</u></a></p>
+</section>
+
+<section class="part" id="decentralisation">
+  <p class="eyebrow rv">Spectacles proposés en décentralisation · réservation avant le 31 décembre 2026</p>
+  <h2 class="rv">Décentralisation</h2>
+<div class="txt rv"><p>Proposition de décentralisation de spectacles lors de la 28<sup>e</sup> édition du Festival International de la Marionnette, dans les villes de Saint-Brieuc Agglomération entre le 26 et le 29 mai 2027.</p><p>Nous vous offrons la possibilité d'accueillir trois compagnies différentes. Au total 15 représentations sont possibles, le matin ou l'après-midi. En tout public par exemple : 11h pour le matin et 17h pour l'après-midi. Cela laisse le temps à la compagnie de démonter et remonter dans une autre ville. Les recettes sont pour votre structure. Vous pouvez aussi décider de faire des représentations pour vos écoles. Dans ce cas, 9h30 le matin et 14h30 l'après-midi est conseillé.</p><p>Les compagnies sont autonomes et nous nous occupons de la partie technique. Les coûts ont été négociés et vous profiterez de 50 % que nous prenons en charge, ainsi que les déplacements et les hébergements. <b>Le coût restant à charge pour les villes s'élève à 550 euros TTC.</b></p><p>1 technicien et 1 bénévole accompagnent la compagnie lors des représentations. En fonction des horaires, nous vous demandons de bien vouloir prendre en charge les repas des artistes, techniciens et bénévoles (de 3 à 4 personnes en fonction du spectacle choisi). Le repas est un moment convivial que vous pouvez partager avec nos équipes.</p><p><b>Il est important de répondre avant le 31 décembre 2026</b> afin de confirmer auprès des compagnies sélectionnées.</p><p>Pour réserver, c'est facile ! Envoyez un mail à <a href="mailto:psaumont22@gmail.com?subject=Marionnetic%20d%C3%A9centralisation"><u>psaumont22@gmail.com</u></a> en indiquant bien vos coordonnées (nom de votre structure et ville), le spectacle choisi avec l'horaire souhaité. En fonction des disponibilités mises à jour régulièrement, vous recevrez une réponse. Les conventions se feront début 2027.</p></div>
+<div class="show rv" style="margin-top:4vh"><div class="d">Dès 5 ans · 25 mn</div><div class="t">Cœur de Patate<em>Compagnie TOF Théâtre · Belgique · Marionnette à main</em></div><div class="l">Créneaux : mer. 26 mai matin · mer. 26 mai Plérin, Le Cap · mer. 26 mai après-midi La Méaugon · jeu. 27 mai · ven. 28 mai matin · sam. 29 mai matin et après-midi</div></div>
+<div class="show rv"><div class="d">Dès 3 ans · 30 mn</div><div class="t">Ruby Box Theater<em>Chili · Marionnette à main · tout public</em></div><div class="l">Créneaux : mer. 26 mai matin Plourhan · mer. 26 mai après-midi Bazaar Hall · jeu. 27 mai · ven. 28 mai · sam. 29 mai matin · sam. 29 mai après-midi Le Tagarin, Binic / Étables-sur-Mer</div></div>
+<div class="show rv"><div class="d">Dès 3 ans · 30 mn</div><div class="t">Le petit Chaperon II, le Retour<em>Philippe Saumont · Marionnettes à tringles</em></div><div class="l">Créneaux : mer. 26 mai matin Médiathèque d'Yffiniac · mer. 26 mai 15h30 Médiathèque de Plédran · jeu. 27 mai 18h Lanfains · ven. 28 mai matin Plaintel · sam. 29 mai matin · sam. 29 mai après-midi Saint-Quay-Portrieux, parc de la Duchesse Anne</div></div>
+<p class="note rv"><a href="mailto:psaumont22@gmail.com?subject=Marionnetic%20d%C3%A9centralisation"><u>Je réserve ici, j'ai fait mon choix parmi les 3 propositions</u></a></p>
+</section>
+
+<section class="prog creme" id="chez-soi">
+  <p class="eyebrow rv">Accueillir un spectacle chez soi</p>
+  <h2 class="rv">Un spectacle dans votre salon</h2>
+<div class="txt rv"><p><b>Quel spectacle ?</b> En cours de programmation.</p><p><b>Où ?</b> Dans votre salon, salle à manger, cuisine. Peu importe, du moment que c'est chez vous. Un espace de 3 m par 3 est nécessaire.</p><p><b>Pour qui ?</b> Vous êtes chez vous, vous invitez qui vous voulez. Attention toutefois, le spectacle est tout public.</p><p><b>Quand ?</b> En début de soirée, le jour sélectionné. Pour l'apéro, c'est parfait !</p><p><b>Combien de temps ?</b> L'installation se fera dès le début d'après-midi, soyez sûrs d'être disponible.</p><p><b>Quoi faire pour préparer ?</b> Si ce n'est inviter des gens avec qui vous voulez partager ce moment, pas grand-chose. Bien sûr, un café pendant l'installation ou après le spectacle fait toujours plaisir. Il faut aussi penser à libérer l'espace nécessaire.</p><p>Contact : <a href="mailto:festivalmarionnetic@gmail.com"><u>festivalmarionnetic@gmail.com</u></a></p></div>
+</section>
+
+<section class="part" id="actions">
+  <p class="eyebrow rv">Culture et médiation</p>
+  <h2 class="rv">Actions culturelles</h2>
+<p class="note rv">En cours.</p>
+</section>
+
+<section class="part" id="benevole">
+  <p class="eyebrow rv">Participer</p>
+  <h2 class="rv">Devenir bénévole</h2>
+<div class="txt rv"><p>Le festival Marionnet'Ic fonctionne avec des bénévoles qui veulent bien tenter l'aventure d'un événement culturel au service du public. Il se déroule sur une semaine et deux week-ends. Nous avons besoin de monde pour assurer le déroulement des différentes actions qui le constituent, dans les meilleures conditions qui soient. Chaque poste (voir « Fiche inscription ») est sous la direction d'un référent (qui a travaillé pendant l'année à sa mise en œuvre) ; cependant, nous tenons aussi à la polyvalence de chacun. Sans compter qu'il faut aussi faire avec les imprévus…</p><p>C'est pourquoi, en remplissant la fiche, il faut s'attendre à être employé sur des tâches qui nous sont moins familières ou agréables. La disponibilité de chacun est, bien entendu, respectée. L'ensemble reste un grand moment collectif, convivial et sympathique, qui permet aux bénévoles des rencontres singulières, l'accès aux spectacles (dans la limite des places disponibles) et quelques moments rares !!</p><p>Si vous êtes partant, merci de bien vouloir remplir la fiche et la renvoyer à l'adresse mail des Marionnet'Ic : <a href="mailto:festivalmarionnetic@gmail.com"><u>festivalmarionnetic@gmail.com</u></a></p><p>Dans le mois qui précède le festival, tous les bénévoles seront invités à une réunion afin de préparer ensemble l'organisation. Merci de nous rejoindre et à très bientôt !!</p><p><a href="https://www.marionnetic.com/_files/ugd/7a8d62_c86846d8dc16435d891fcc8a8b5b7311.pdf"><u>Fiche inscription bénévole (PDF)</u></a> · <a href="https://www.marionnetic.com/_files/ugd/7a8d62_0d2383e212a048aab7a45e333dc3e61c.docx"><u>version Word</u></a></p></div>
+</section>
+
+<section class="prog creme" id="hebergeant">
+  <p class="eyebrow rv">Participer</p>
+  <h2 class="rv">Devenir hébergeant</h2>
+<div class="txt rv"><p>Beaucoup de compagnies qui viennent au festival Marionnet'Ic arrivent de loin. Souvent des quatre coins de France, mais également, pour certaines, de l'étranger. Il est donc très intéressant pour les artistes de rencontrer les habitants de la région, sans compter que c'est beaucoup plus convivial. Pour les hébergeants, c'est l'occasion de rencontrer, d'échanger, de découvrir une culture, un métier, un domaine mal connus.</p><p>Si vous habitez Saint-Brieuc ou ses alentours, que vous disposez d'une ou plusieurs chambres, et que vous souhaitez partager des moments privilégiés avec les artistes, venez nous rejoindre !</p><p>Si vous êtes partant, merci de bien vouloir remplir la fiche et la renvoyer à l'adresse mail des Marionnet'Ic : <a href="mailto:festivalmarionnetic@gmail.com"><u>festivalmarionnetic@gmail.com</u></a></p><p>Dans le mois qui précède le festival, une personne de chez nous entrera en contact avec vous afin de vous donner toutes les précisions et informations concernant les équipes d'artistes que vous accueillerez. Merci de nous rejoindre et à très bientôt !</p><p><a href="https://www.marionnetic.com/_files/ugd/7a8d62_79dac030281548a185fe4e08c11f6944.pdf"><u>Fiche inscription hébergeant (PDF)</u></a> · <a href="https://www.marionnetic.com/_files/ugd/7a8d62_52d467be057b4c60a52c8566b35fab40.docx"><u>version Word</u></a></p></div>
+</section>
+
+<section class="ligne" id="partenaires">
+  <p class="eyebrow rv">Ils nous soutiennent</p>
+  <h2 class="rv">Des partenaires investis dans la vie locale</h2>
+<div class="txt light rv"><p><b>Le festival Marionnet'IC est soutenu par</b><br>La DRAC Bretagne · La Région Bretagne · Le Conseil départemental des Côtes d'Armor · Saint-Brieuc Armor Agglomération · La ville de Saint-Brieuc · La ville de Pordic · Centre culturel de la Ville Robert (Pordic) · Centre culturel Victor Hugo (Ploufragan) · Centre culturel Bleu Pluriel (Trégueux)</p><p><b>Les 20 villes en décentralisation</b><br>Centre commercial Leclerc (Plérin) · L'entreprise Daven (Pordic) · La librairie Le Tagarin (Binic – Étables-sur-Mer)</p><p><b>Merci à</b><br>Mathieu Dessally pour les visuels · Bertrand Cousseau pour les photos · L'imprimerie Guivarc'h pour les impressions · Frump, Virginie Mace Daniel pour le graphisme</p><p><b>Et à</b><br>Ouest-France · Le Télégramme · Ici Armorique · Cob FM · Radio Clarté · Europe 2 Radio</p></div>
+</section>
+
+<section class="part" id="presse">
+  <p class="eyebrow rv">Espace presse / pro</p>
+  <h2 class="rv">Presse et programmateurs</h2>
+<div class="txt rv"><p><b>Les photos des spectacles.</b> <a href="https://drive.google.com/drive/u/2/folders/1OcFFL6OaINIyTK8zAXyb_lTuQqz3ckdd"><u>Retrouvez toutes les photos des spectacles en haute définition en cliquant ici.</u></a></p><p><b>Programmateurs.</b> Amis programmateurs, afin que nous puissions vous accueillir dans les meilleures conditions, merci de préparer votre venue en remplissant la fiche d'accueil et en la renvoyant par mail à <a href="mailto:festivalmarionnetic@gmail.com?subject=Accueil%20programmateur"><u>festivalmarionnetic@gmail.com</u></a>.</p><p><a href="https://www.marionnetic.com/_files/ugd/7a8d62_e8a01b7c820c463585934ee964fc4623.pdf"><u>Communiqué de presse du festival (PDF)</u></a></p></div>
+</section>
+
+<section class="infos" id="infos">
+  <div class="rv">
+    <p class="eyebrow">Lieux</p>
+    <h2>Où le trouver</h2>
+    <ul class="lieux">
+      <li>Pavillon du Musée d'art et d'histoire <span>Saint-Brieuc</span></li>
+      <li>Bazaar Hall <span>Saint-Brieuc</span></li>
+      <li>Crèches et centres sociaux <span>Saint-Brieuc</span></li>
+      <li>Centre de la Ville Robert <span>Pordic</span></li>
+      <li>Espace Victor Hugo <span>Ploufragan</span></li>
+      <li>Bleu Pluriel <span>Trégueux</span></li>
+      <li>Le Cap <span>Plérin</span></li>
+      <li>Salle de L'Estran <span>Binic</span></li>
+      <li>Le Tagarin, café-librairie <span>Binic · Étables-sur-Mer</span></li>
+      <li>Médiathèque <span>Yffiniac</span></li>
+      <li>Médiathèque <span>Plédran</span></li>
+      <li>Salle à définir <span>Plourhan</span></li>
+      <li>Salle à définir <span>La Méaugon</span></li>
+      <li>Ville de Lanfains <span>Lanfains</span></li>
+      <li>Salle à définir <span>Plaintel</span></li>
+      <li>Parc de la Duchesse Anne <span>Saint-Quay-Portrieux</span></li>
+      <li>Chez l'habitant <span>Toute l'agglomération</span></li>
+    </ul>
+  </div>
+  <div class="rv">
+    <p class="eyebrow">Dates</p>
+    <div class="big">23 → 29<br>mai 2027<small>Saint-Brieuc Armor Agglomération</small></div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<footer>
+  <img class="flogo" src="logo-clair.png" alt="Les Marionnet'IC, festival international marionnettes en Côtes d'Armor">
+  <h3>Rendez-vous en mai</h3>
+  <p>Festival international de marionnettes en Côtes d'Armor<br>Théâtre d'objets · Marionnettes · Formes courtes · Expositions · Ateliers</p>
+  <a class="mail" href="mailto:festivalmarionnetic@gmail.com">festivalmarionnetic@gmail.com</a>
+  <p class="addr">Festival Marionnet'IC · 32 bis rue Wilson · 22520 Binic</p>
+  <p class="soc"><a href="https://www.helloasso.com/associations/les-marionnet-ic">Adhérer</a><a href="https://www.facebook.com/profile.php?id=100064495038074">Facebook</a><a href="https://www.instagram.com/festivalmarionnetic/">Instagram</a></p>
+  <small>Maquette de proposition · éléments visuels issus du teaser du festival · à affiner avec l'équipe</small>
+</footer>
+
+<div id="lb"><button class="x" aria-label="Fermer">×</button><button class="p" aria-label="Précédente">‹</button><img alt=""><button class="n" aria-label="Suivante">›</button></div>
+<script>
+/* titre lettre par lettre */
+(function(){
+  var t=document.getElementById('title'),mot="MARIONNET'IC";
+  var d=document.createElement('div');d.style.display='flex';d.style.flexWrap='nowrap';
+  mot.split('').forEach(function(c,i){
+    var s=document.createElement('span');s.textContent=c;s.style.animationDelay=(0.5+i*0.07)+'s';
+    if(i>=10)s.innerHTML='<i>'+c+'</i>';   /* « IC » dans l'autre couleur, « MARIONNET' » en blanc */
+    d.appendChild(s);
+  });
+  t.appendChild(d);
+})();
+
+/* bandeau */
+(function(){
+  var items=["Marionnettes","23 → 29 mai 2027","Théâtre d'objets","Saint-Brieuc Armor Agglomération","Formes courtes","Expositions","Ateliers"];
+  var h='';for(var r=0;r<2;r++)items.forEach(function(x,i){h+='<span class="'+(i%2?'d':'')+'">'+x+'</span><span class="d">✦</span>'});
+  document.getElementById('mq').innerHTML=h+h;
+})();
+
+/* fils de marionnettiste qui descendent et réagissent à la souris */
+(function(){
+  var svg=document.getElementById('strings'),NS='http://www.w3.org/2000/svg';
+  var W,H,mx=.5,N=11,S=[];
+  function size(){W=svg.clientWidth;H=svg.clientHeight;svg.setAttribute('viewBox','0 0 '+W+' '+H)}
+  size();addEventListener('resize',size);
+  addEventListener('mousemove',function(e){mx=e.clientX/innerWidth});
+  for(var i=0;i<N;i++){
+    var p=document.createElementNS(NS,'path');p.setAttribute('fill','none');p.setAttribute('stroke','#ffffff');
+    p.setAttribute('stroke-width',(.7+Math.random()*.9).toFixed(2));p.setAttribute('stroke-opacity',(.45+Math.random()*.4).toFixed(2));
+    var c=document.createElementNS(NS,'circle');c.setAttribute('r',(3+Math.random()*3).toFixed(1));c.setAttribute('fill','#f6ead8');c.setAttribute('stroke','none');
+    svg.appendChild(p);svg.appendChild(c);
+    var r=function(a,b){return a+Math.random()*(b-a)};
+    S.push({p:p,c:c,x:(i+.5)/N+r(-.02,.02),len:r(.2,.7),
+      /* trois mouvements lents qui n'ont pas la même cadence : rien n'est synchrone */
+      a1:r(6,14),f1:r(.18,.42),p1:r(0,6.3),
+      a2:r(3,9),f2:r(.51,.97),p2:r(0,6.3),
+      a3:r(2,6),f3:r(1.1,1.7),p3:r(0,6.3),
+      br:r(.03,.09),bf:r(.07,.19),bp:r(0,6.3),     /* la longueur respire à son rythme */
+      lag:r(.006,.04),amp:r(.4,1.5),m:.5,          /* réponse à la souris : chacun avec son retard */
+      delay:r(0,2.6)});
+  }
+  var t0=performance.now();
+  (function loop(now){
+    var t=(now-t0)/1000;
+    S.forEach(function(s,i){
+      var grow=Math.min(1,Math.max(0,(t-s.delay-.3)/2.2));grow=1-Math.pow(1-grow,3);
+      s.m+=(mx-s.m)*s.lag;                       /* suit la souris avec son propre retard */
+      var x0=s.x*W,y1=s.len*H*grow*(1+Math.sin(t*s.bf+s.bp)*s.br);
+      var sway=Math.sin(t*s.f1+s.p1)*s.a1+Math.sin(t*s.f2+s.p2)*s.a2+Math.sin(t*s.f3+s.p3)*s.a3+(s.m-.5)*70*s.amp*s.len;
+      var x1=x0+sway;
+      s.p.setAttribute('d','M'+x0+' -10 Q'+(x0+sway*.15)+' '+(y1*.5)+' '+x1+' '+y1);
+      s.c.setAttribute('cx',x1);s.c.setAttribute('cy',y1);s.c.setAttribute('opacity',grow);
+    });
+    requestAnimationFrame(loop);
+  })(t0);
+})();
+
+
+/* défilés de photos : dérive lente, pause au survol, on peut les faire glisser */
+document.querySelectorAll('.reel').forEach(function(r){
+  var t=r.firstElementChild;t.innerHTML+=t.innerHTML;
+  var paused=false,down=false,sx=0,sl=0,pos=0,last=performance.now();
+  function half(){return t.scrollWidth/2}
+  r.addEventListener('mouseenter',function(){paused=true});r.addEventListener('mouseleave',function(){paused=false;down=false;r.classList.remove('drag')});
+  r.addEventListener('mousedown',function(e){down=true;sx=e.pageX;sl=r.scrollLeft;r.classList.add('drag')});
+  addEventListener('mouseup',function(){down=false;r.classList.remove('drag')});
+  r.addEventListener('mousemove',function(e){if(down){r.scrollLeft=sl-(e.pageX-sx)}});
+  r.addEventListener('touchstart',function(){paused=true},{passive:true});r.addEventListener('touchend',function(){setTimeout(function(){paused=false},1500)},{passive:true});
+  (function loop(now){
+    var dt=Math.min(50,now-last);last=now;
+    if(!paused&&!down){if(Math.abs(r.scrollLeft-pos)>2)pos=r.scrollLeft;pos+=dt*0.035;r.scrollLeft=pos}else{pos=r.scrollLeft}
+    var h=half();if(h>0){if(r.scrollLeft>=h){r.scrollLeft-=h;pos=r.scrollLeft}else if(r.scrollLeft<=0&&paused){r.scrollLeft+=h;pos=r.scrollLeft}}
+    requestAnimationFrame(loop);
+  })(last);
+});
+
+
+/* mosaïque cliquable */
+(function(){
+  var imgs=[].slice.call(document.querySelectorAll('#mosaic img,.bigphoto img,#mosaic2 img')),lb=document.getElementById('lb'),im=lb.querySelector('img'),i=0;
+  function show(k){i=(k+imgs.length)%imgs.length;im.src=imgs[i].src;lb.classList.add('on')}
+  imgs.forEach(function(e,k){e.parentNode.addEventListener('click',function(){show(k)})});
+  lb.querySelector('.x').onclick=function(){lb.classList.remove('on')};
+  lb.querySelector('.p').onclick=function(e){e.stopPropagation();show(i-1)};
+  lb.querySelector('.n').onclick=function(e){e.stopPropagation();show(i+1)};
+  lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('on')});
+  addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')lb.classList.remove('on');if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
+  var sx=0;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+  lb.addEventListener('touchend',function(e){var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)show(i+(d<0?1:-1))},{passive:true});
+})();
+
+/* barre qui s'opacifie */
+addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('s',scrollY>innerHeight*.6)});
+
+/* apparitions */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');var m=e.target.closest('.map');if(m)m.classList.add('on')}})},{threshold:.2});
+document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
+document.querySelector('.map').classList.add('mapfix');
+var mp=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.25});
+mp.observe(document.querySelector('.map'));
+
+/* lecture du teaser */
+document.getElementById('play').addEventListener('click',function(){
+  var v=document.querySelector('#vid video');document.getElementById('vid').classList.add('on');v.play();
+});
+</script>
+</body>
+</html>
